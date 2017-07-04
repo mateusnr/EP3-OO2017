@@ -37,10 +37,11 @@
     <%=f.error_span(:tipo) %>
   </div>
   <div class="form-group">
+
+
     <%= f.label :launch, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :launch, :class => 'form-control' %>
-    </div>
+     <%= f.date_select :launch, id: :books_launch, :class => 'dropdown-menu' %>    </div>
     <%=f.error_span(:launch) %>
   </div>
   <div class="form-group">
