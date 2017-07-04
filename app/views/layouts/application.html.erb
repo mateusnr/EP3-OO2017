@@ -45,6 +45,16 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Initial Page",  initial_page_index_path   %></li>
             <li><%= link_to "Book",  books_path  %></li>
+            <% if user_signed_in? %>
+              <li><%= current_user.email %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign in", user_session_path %></li>
+              <li><%= link_to "Create account",  new_user_registration_path %></li>
+
+            <% end %>
+
+
           </ul>
         </div>
       </div>

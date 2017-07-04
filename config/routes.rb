@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'initial_page/index'
   root 'initial_page#index'
 
