@@ -43,8 +43,20 @@
         <a class="navbar-brand" href="#">Digital Library</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Initial Page",  initial_page_index_path   %></li>
-            <li><%= link_to "Book",  books_path  %></li>
+            <li><%= link_to "Home",  initial_page_index_path   %></li>
+            <li><%= link_to "Books",  books_path  %></li>
+            </ul>
+            <ul class="nav pull-right navbar-nav">
+            <% if user_signed_in? %>
+              <li><%= link_to current_user.email, '#' %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign in", user_session_path %></li>
+              <li><%= link_to "Create account",  new_user_registration_path %></li>
+
+            <% end %>
+
+
           </ul>
         </div>
       </div>
@@ -63,7 +75,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>&copy; Company 2017</p>
+      
       </footer>
 
     </div> <!-- /container -->
